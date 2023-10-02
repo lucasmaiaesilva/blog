@@ -22,5 +22,9 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
   if (!doc?.body.code) {
     return notFound;
   }
-  return <Mdx code={doc.body.code} />;
+  return (
+    <div className="container">
+      <Mdx code={doc.body.code} />
+    </div>
+  );
 }
