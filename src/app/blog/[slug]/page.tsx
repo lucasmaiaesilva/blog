@@ -1,3 +1,4 @@
+import { Mdx } from "@/components/mdx-components";
 import { allDocs } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
@@ -18,5 +19,8 @@ async function getDocFromParams(slug: string) {
 
 export default async function BlogPostPage({ params }: BlogPostProps) {
   const doc = await getDocFromParams(params.slug);
-  return <pre>{JSON.stringify(doc, null, 2)}</pre>;
+  if (!doc?.body.code) {
+    return notFound;
+  }
+  return <Mdx code={doc.body.code} />;
 }
