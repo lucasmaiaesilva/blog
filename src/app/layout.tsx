@@ -2,6 +2,8 @@ import "./styles/globals.css";
 import "./styles/mdx.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { PageHeader } from "@/components/page-header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR">
+      <body className={cn(inter.className, "flex min-h-screen flex-col")}>
+        <PageHeader />
+
+        <main className="flex-1">{children}</main>
+
+        <footer>teste</footer>
+      </body>
     </html>
   );
 }
