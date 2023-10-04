@@ -55,10 +55,11 @@ export function CommandMenu({ ...props }: any) {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
+
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Digite um comando para procurar..." />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>Nenhum resultado encontrado</CommandEmpty>
           <CommandGroup heading="Links">
             {allDocs.map((navItem) => (
               <CommandItem
